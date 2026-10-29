@@ -31,39 +31,30 @@ SECOND_BOT_TOKEN = "9026300591:AAFXAm82-LhYIcuM_m5CzD6WC9mTyCB3ZSI"
 bot2 = Bot(token=SECOND_BOT_TOKEN)
 dp2 = Dispatcher()
 
+# --- Общий текст для обоих ботов ---
+BOT_TEXT = (
+    "⚠️ ПОМНИ ДРУЖИЩЕ: ВСЕ В ЭТОЙ СФЕРЕ СКАМ, ТОЛЬКО SAMPERLIFE ПЛАТИТ! ТО ЕСТЬ Я.\n\n"
+    "Являюсь единственным честным скупом номер 1. В Telegram сделки НЕ ВЕДУ — здесь сплошной скам!\n"
+    "Все переписки, сделки и выплаты веду строго через:\n"
+    "• WhatsApp\n"
+    "• Discord\n\n"
+    "🎁 АКЦИЯ ДО 1 ЯНВАРЯ: Пригласи друга и получи 100 рублей за каждого!"
+)
+
+KEYBOARD = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text="💬 Написать в WhatsApp", url="https://wa.me/8944682980")],
+    [InlineKeyboardButton(text="🎮 Написать в Discord", url="https://discord.com/users/skupt55")],
+    [InlineKeyboardButton(text="▶️ YouTube (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.youtube.com/@SamperLife/featured")],
+    [InlineKeyboardButton(text="🎵 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skuptapuskinskihcart")]
+])
+
 @dp1.message(CommandStart())
 async def start_cmd_bot1(message: types.Message):
-    text = (
-        "⚠️ ПОМНИ ДРУЖИЩЕ: ВСЕ В ЭТОЙ СФЕРЕ СКАМ, ТОЛЬКО SAMPERLIFE ПЛАТИТ! ТО ЕСТЬ Я.\n\n"
-        "Являюсь единственным честным скупом номер 1. В Telegram сделки НЕ ВЕДУ — здесь сплошной скам!\n"
-        "Все переписки, сделки и выплаты веду строго через:\n"
-        "• WhatsApp\n"
-        "• Discord\n\n"
-        "🎁 АКЦИЯ ДО 1 ЯНВАРЯ: Пригласи друга и получи 100 рублей за каждого!"
-    )
-    keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="💬 Написать в WhatsApp", url="https://wa.me/8944682980")],
-        [InlineKeyboardButton(text="🎮 Написать в Discord", url="https://discord.com/users/skupt55")],
-        [InlineKeyboardButton(text="▶️ YouTube (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.youtube.com/@SamperLife/featured")],
-        [InlineKeyboardButton(text="🎵 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skuptapuskinskihcart")]
-    ])
-    await message.answer(text, reply_markup=keyboard)
+    await message.answer(BOT_TEXT, reply_markup=KEYBOARD)
 
 @dp2.message(CommandStart())
 async def start_cmd_bot2(message: types.Message):
-    text = (
-        "💳 БЫСТРАЯ И БЕЗОПАСНАЯ СКУПКА ПУШКИНСКИХ КАРТ\n\n"
-        "⚡️ Никакого скама и задержек — только моментальные выплаты!\n"
-        "🤝 Честные условия, максимальный процент за карту.\n\n"
-        "❌ В Telegram сделки не проводим из-за фейков и мошенников.\n"
-        "Выплаты и оформление строго через наши официальные контакты ниже:"
-    )
-    keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📲 Сдать карту в WhatsApp", url="https://wa.me/8944682980")],
-        [InlineKeyboardButton(text="💬 Написать в Discord", url="https://discord.com/users/skupt55")],
-        [InlineKeyboardButton(text="📢 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skuptapuskinskihcart")]
-    ])
-    await message.answer(text, reply_markup=keyboard)
+    await message.answer(BOT_TEXT, reply_markup=KEYBOARD)
 
 async def main():
     try:
