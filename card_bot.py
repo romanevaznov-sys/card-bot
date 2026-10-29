@@ -24,12 +24,10 @@ threading.Thread(target=run_server, daemon=True).start()
 logging.basicConfig(level=logging.INFO)
 
 # --- 2. Конфигурация ботов ---
-# Первый бот (Визитка)
 BOT_TOKEN_1 = os.getenv("BOT_TOKEN", "9289461046:AAMXMqsF85NZH9QalbywppDo-WETMZ8")
 bot1 = Bot(token=BOT_TOKEN_1)
 dp1 = Dispatcher()
 
-# Второй бот (Скупка Пушкинских Карт) — берет токен из переменных окружения Render
 SECOND_BOT_TOKEN = os.getenv("SECOND_BOT_TOKEN")
 bot2 = Bot(token=SECOND_BOT_TOKEN)
 dp2 = Dispatcher()
@@ -39,12 +37,12 @@ dp2 = Dispatcher()
 @dp1.message(CommandStart())
 async def start_cmd_bot1(message: types.Message):
     text = (
-        "⚠️ <b>ПОМНИ ДРУЖИЩЕ: ВСЕ В ЭТОЙ СФЕРЕ СКАМ, ТОЛЬКО SAMPERLIFE ПЛАТИТ! ТО ЕСТЬ Я.</b>\n\n"
-        "Являюсь единственным честным гарантом. В Telegram сделки <b>**НЕ ВЕДУ**</b> — здесь сплошной скам!\n"
+        "⚠️ ПОМНИ ДРУЖИЩЕ: ВСЕ В ЭТОЙ СФЕРЕ СКАМ, ТОЛЬКО SAMPERLIFE ПЛАТИТ! ТО ЕСТЬ Я.\n\n"
+        "Являюсь единственным честным гарантом. В Telegram сделки НЕ ВЕДУ — здесь сплошной скам!\n"
         "Все переписки, сделки и выплаты веду строго через:\n"
-        "• <b>WhatsApp</b>\n"
-        "• <b>Discord</b>\n\n"
-        "🎁 <b>**АКЦИЯ ДРУЖИЩЕ:** Пригласи друга и получи **100 рублей** за каждого успешного типа!</b>"
+        "• WhatsApp\n"
+        "• Discord\n\n"
+        "🎁 АКЦИЯ ДРУЖИЩЕ: Пригласи друга и получи 100 рублей за каждого успешного типа!"
     )
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="💬 Написать в WhatsApp", url="https://wa.me/8944682980")],
@@ -52,14 +50,14 @@ async def start_cmd_bot1(message: types.Message):
         [InlineKeyboardButton(text="▶️ YouTube (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.youtube.com/@SamperLife/featured")],
         [InlineKeyboardButton(text="🎵 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skuptapuskinskihcart")]
     ])
-    await message.answer(text, reply_markup=keyboard, parse_mode="HTML")
+    await message.answer(text, reply_markup=keyboard)
 
 
 # --- 4. Логика ВТОРОГО бота (Скупка Пушкинских карт) ---
 @dp2.message(CommandStart())
 async def start_cmd_bot2(message: types.Message):
     text = (
-        "💳 <b>БЫСТРАЯ И БЕЗОПАСНАЯ СКУПКА ПУШКИНСКИХ КАРТ</b>\n\n"
+        "💳 БЫСТРАЯ И БЕЗОПАСНАЯ СКУПКА ПУШКИНСКИХ КАРТ\n\n"
         "⚡️ Никакого скама и задержек — только моментальные выплаты!\n"
         "🤝 Честные условия, максимальный процент за карту.\n\n"
         "❌ В Telegram сделки не проводим из-за фейков и мошенников.\n"
@@ -70,7 +68,7 @@ async def start_cmd_bot2(message: types.Message):
         [InlineKeyboardButton(text="💬 Написать в Discord", url="https://discord.com/users/skupt55")],
         [InlineKeyboardButton(text="📢 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skuptapuskinskihcart")]
     ])
-    await message.answer(text, reply_markup=keyboard, parse_mode="HTML")
+    await message.answer(text, reply_markup=keyboard)
 
 
 # --- 5. Одновременный запуск обоих ботов ---
