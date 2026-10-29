@@ -7,7 +7,6 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-# --- 1. Мини веб-сервер для удержания порта Render ---
 class SimpleHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -23,7 +22,6 @@ threading.Thread(target=run_server, daemon=True).start()
 
 logging.basicConfig(level=logging.INFO)
 
-# --- 2. Конфигурация ботов (токены прописаны напрямую) ---
 BOT_TOKEN_1 = "9289461046:AAMXMqsF85NZH9QalbywppDo-WETMZ8"
 bot1 = Bot(token=BOT_TOKEN_1)
 dp1 = Dispatcher()
@@ -32,8 +30,6 @@ SECOND_BOT_TOKEN = "9026300591:AAFXAm82-LhYIcuM_m5CzD6WC9mTyCB3ZSI"
 bot2 = Bot(token=SECOND_BOT_TOKEN)
 dp2 = Dispatcher()
 
-
-# --- 3. Логика ПЕРВОГО бота (SamperLife Визитка) ---
 @dp1.message(CommandStart())
 async def start_cmd_bot1(message: types.Message):
     text = (
@@ -52,8 +48,6 @@ async def start_cmd_bot1(message: types.Message):
     ])
     await message.answer(text, reply_markup=keyboard)
 
-
-# --- 4. Логика ВТОРОГО бота (Скупка Пушкинских карт) ---
 @dp2.message(CommandStart())
 async def start_cmd_bot2(message: types.Message):
     text = (
@@ -70,8 +64,6 @@ async def start_cmd_bot2(message: types.Message):
     ])
     await message.answer(text, reply_markup=keyboard)
 
-
-# --- 5. Одновременный запуск обоих ботов ---
 async def main():
     try:
         await bot1.delete_webhook(drop_pending_updates=True)
