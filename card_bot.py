@@ -22,7 +22,8 @@ threading.Thread(target=run_server, daemon=True).start()
 
 logging.basicConfig(level=logging.INFO)
 
-BOT_TOKEN_1 = "9289461046:AAMXMqsF85NZH9QalbywppDo-WETMZ8"
+# --- Конфигурация ботов ---
+BOT_TOKEN_1 = "9289461046:AAGWsNqsf05MZh9Qa1IbywbppDo-mMBTN90"
 bot1 = Bot(token=BOT_TOKEN_1)
 dp1 = Dispatcher()
 
