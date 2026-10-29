@@ -29,8 +29,8 @@ BOT_TOKEN_1 = os.getenv("BOT_TOKEN", "9289461046:AAMXMqsF85NZH9QalbywppDo-WETMZ8
 bot1 = Bot(token=BOT_TOKEN_1)
 dp1 = Dispatcher()
 
-# Второй бот (Скупка Пушкинских Карт)
-SECOND_BOT_TOKEN = os.getenv("SECOND_BOT_TOKEN", "ВСТАВЬ_СЮДА_ТОКЕН_ВТОРОГО_БОТА")
+# Второй бот (Скупка Пушкинских Карт) — берет токен из переменных окружения Render
+SECOND_BOT_TOKEN = os.getenv("SECOND_BOT_TOKEN")
 bot2 = Bot(token=SECOND_BOT_TOKEN)
 dp2 = Dispatcher()
 
