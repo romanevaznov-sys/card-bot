@@ -23,12 +23,12 @@ threading.Thread(target=run_server, daemon=True).start()
 
 logging.basicConfig(level=logging.INFO)
 
-# --- 2. Конфигурация ботов ---
-BOT_TOKEN_1 = os.getenv("BOT_TOKEN", "9289461046:AAMXMqsF85NZH9QalbywppDo-WETMZ8")
+# --- 2. Конфигурация ботов (токены прописаны напрямую) ---
+BOT_TOKEN_1 = "9289461046:AAMXMqsF85NZH9QalbywppDo-WETMZ8"
 bot1 = Bot(token=BOT_TOKEN_1)
 dp1 = Dispatcher()
 
-SECOND_BOT_TOKEN = os.getenv("SECOND_BOT_TOKEN")
+SECOND_BOT_TOKEN = "9026300591:AAFXAm82-LhYIcuM_m5CzD6WC9mTyCB3ZSI"
 bot2 = Bot(token=SECOND_BOT_TOKEN)
 dp2 = Dispatcher()
 
