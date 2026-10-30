@@ -45,7 +45,7 @@ KEYBOARD = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="💬 Написать в WhatsApp", url="https://wa.me/8944682980")],
     [InlineKeyboardButton(text="🎮 Написать в Discord", url="https://discord.com/users/skupt55")],
     [InlineKeyboardButton(text="▶️ YouTube (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.youtube.com/@SamperLife/featured")],
-    [InlineKeyboardButton(text="🎵 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skuptapuskinskihcart")]
+    [InlineKeyboardButton(text="🎵 TikTok (КЛИКНИ И УДОСТОВЕРЬСЯ САМ)", url="https://www.tiktok.com/@skupkapuskinskihcart")]
 ])
 
 @dp1.message(CommandStart())
